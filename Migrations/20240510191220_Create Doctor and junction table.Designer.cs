@@ -2,6 +2,7 @@
 using HospitalApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -10,9 +11,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace HospitalApi.Migrations
 {
     [DbContext(typeof(HospitalContext))]
-    partial class HospitalContextModelSnapshot : ModelSnapshot
+    [Migration("20240510191220_Create Doctor and junction table")]
+    partial class CreateDoctorandjunctiontable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,8 +45,6 @@ namespace HospitalApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasAlternateKey("TCKN");
-
                     b.ToTable("Doctors");
                 });
 
@@ -59,6 +60,9 @@ namespace HospitalApi.Migrations
                         .HasColumnType("integer");
 
                     b.Property<int>("HospitalId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("TCKN")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -94,13 +98,13 @@ namespace HospitalApi.Migrations
             modelBuilder.Entity("HospitalApi.Models.DoctorHospital", b =>
                 {
                     b.HasOne("HospitalApi.Models.Doctor", "Doctor")
-                        .WithMany()
+                        .WithMany("DoctorHospitals")
                         .HasForeignKey("DoctorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("HospitalApi.Models.Hospital", "Hospital")
-                        .WithMany()
+                        .WithMany("DoctorHospitals")
                         .HasForeignKey("HospitalId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -108,6 +112,16 @@ namespace HospitalApi.Migrations
                     b.Navigation("Doctor");
 
                     b.Navigation("Hospital");
+                });
+
+            modelBuilder.Entity("HospitalApi.Models.Doctor", b =>
+                {
+                    b.Navigation("DoctorHospitals");
+                });
+
+            modelBuilder.Entity("HospitalApi.Models.Hospital", b =>
+                {
+                    b.Navigation("DoctorHospitals");
                 });
 #pragma warning restore 612, 618
         }
