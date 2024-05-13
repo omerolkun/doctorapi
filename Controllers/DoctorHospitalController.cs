@@ -77,6 +77,10 @@ namespace HospitalApi.Controllers
         [HttpPost]
         public async Task<ActionResult<DoctorHospital>> PostDoctorHospital(DoctorHospital doctorHospital)
         {
+
+            var doctor= await _context.Doctors.FirstOrDefaultAsync(m => m.TCKN == doctorHospital.DoctorId);
+            doctorHospital.DoctorId = doctor.Id;
+
             _context.DoctorHospitals.Add(doctorHospital);
             await _context.SaveChangesAsync();
 

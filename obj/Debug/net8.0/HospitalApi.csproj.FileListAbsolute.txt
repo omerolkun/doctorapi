@@ -252,3 +252,4 @@
 /home/om/test-board/dotnets/HospitalApi/obj/Debug/net8.0/HospitalApi.pdb
 /home/om/test-board/dotnets/HospitalApi/obj/Debug/net8.0/HospitalApi.genruntimeconfig.cache
 /home/om/test-board/dotnets/HospitalApi/obj/Debug/net8.0/ref/HospitalApi.dll
+/home/om/test-board/dotnets/HospitalApi/obj/Debug/net8.0/HospitalApi.sourcelink.json
