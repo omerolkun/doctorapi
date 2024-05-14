@@ -40,6 +40,15 @@ namespace HospitalApi.Controllers
 
             return doctorHospital;
         }
+        // GET: api/DoctorHospital/junction
+        [HttpGet("junction")]
+        public async Task<ActionResult<DoctorHospital>> GetJunction()
+        {
+
+            return NotFound();
+
+        }
+
 
         // PUT: api/DoctorHospital/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
@@ -78,7 +87,7 @@ namespace HospitalApi.Controllers
         public async Task<ActionResult<DoctorHospital>> PostDoctorHospital(DoctorHospital doctorHospital)
         {
 
-            var doctor= await _context.Doctors.FirstOrDefaultAsync(m => m.TCKN == doctorHospital.DoctorId);
+            var doctor = await _context.Doctors.FirstOrDefaultAsync(m => m.TCKN == doctorHospital.DoctorId);
             doctorHospital.DoctorId = doctor.Id;
 
             _context.DoctorHospitals.Add(doctorHospital);
