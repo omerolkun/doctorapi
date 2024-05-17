@@ -42,11 +42,21 @@ namespace HospitalApi.Controllers
         }
         // GET: api/DoctorHospital/junction
         [HttpGet("junction")]
-        public async Task<ActionResult<DoctorHospital>> GetJunction()
+        public async Task<ActionResult<IEnumerable<JuncDTO>>> GetJunc()
         {
-
-            return NotFound();
-
+            var itemList = await (from dh in _context.DoctorHospitals
+                                    join d in _context.Doctors on dh.DoctorId equals d.Id
+                                    join h in _context.Hospitals on dh.HospitalId equals h.Id 
+                                    select new JuncDTO
+                                    {
+                                        DoctorName = d.Name,
+                                        HospitalName = h.Name,
+                                        DoctorId = d.Id,
+                                        DoctorTCKN = d.TCKN,
+                                        HospitalId = h.Id
+                                    }
+                                    ).ToListAsync();
+            return itemList;
         }
 
 
