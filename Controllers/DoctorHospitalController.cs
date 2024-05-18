@@ -44,19 +44,21 @@ namespace HospitalApi.Controllers
         [HttpGet("junction")]
         public async Task<ActionResult<IEnumerable<JuncDTO>>> GetJunc()
         {
-            var itemList = await (from dh in _context.DoctorHospitals
-                                    join d in _context.Doctors on dh.DoctorId equals d.Id
-                                    join h in _context.Hospitals on dh.HospitalId equals h.Id 
-                                    select new JuncDTO
-                                    {
-                                        DoctorName = d.Name,
-                                        HospitalName = h.Name,
-                                        DoctorId = d.Id,
-                                        DoctorTCKN = d.TCKN,
-                                        HospitalId = h.Id
-                                    }
-                                    ).ToListAsync();
-            return itemList;
+            var result = await _context.DoctorHospitals
+                                        .Include(dh => dh.Doctor)
+                                        .Include(dh => dh.Hospital)
+                                        .GroupBy(dh => dh.Doctor)
+                                        .Select(group => new JuncDTO
+                                        {
+                                            DoctorName = group.Key.Name,
+                                            DoctorId = group.Key.Id,
+                                            DoctorTCKN = group.Key.TCKN,
+                                            DoctorSurname = group.Key.Surname,
+                                            Hospitals = group.Select(dh => dh.Hospital).ToList()
+                                        }
+                                        ).ToListAsync();
+            return Ok(result);
+
         }
 
 
