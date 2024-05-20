@@ -44,7 +44,7 @@ namespace HospitalApi.Migrations
 
                     b.HasAlternateKey("TCKN");
 
-                    b.ToTable("Doctors");
+                    b.ToTable("Doctors", (string)null);
                 });
 
             modelBuilder.Entity("HospitalApi.Models.DoctorHospital", b =>
@@ -62,7 +62,7 @@ namespace HospitalApi.Migrations
 
                     b.HasIndex("HospitalId");
 
-                    b.ToTable("DoctorHospitals");
+                    b.ToTable("DoctorHospitals", (string)null);
                 });
 
             modelBuilder.Entity("HospitalApi.Models.Hospital", b =>
@@ -83,7 +83,7 @@ namespace HospitalApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Hospitals");
+                    b.ToTable("Hospitals", (string)null);
                 });
 
             modelBuilder.Entity("HospitalApi.Models.DoctorHospital", b =>

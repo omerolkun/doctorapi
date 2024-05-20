@@ -11,7 +11,8 @@ public class HospitalContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Doctor>()
-            .HasAlternateKey(i => i.TCKN);
+            .HasAlternateKey(i => i.TCKN)
+            .HasName("AK_Doctors_TCKN");
 
         modelBuilder.Entity<DoctorHospital>()
             .HasKey(dh => new {dh.DoctorId, dh.HospitalId});

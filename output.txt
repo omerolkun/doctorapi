@@ -1,0 +1,107 @@
+Building...
+/home/om/test-board/dotnets/HospitalApi/Migrations/20240510221514_remove doctorhospital lists from doctor,hospital.cs(8,26): warning CS8981: The type name 'removedoctorhospitallistsfromdoctorhospital' only contains lower-cased ascii characters. Such names may become reserved for the language. [/home/om/test-board/dotnets/HospitalApi/HospitalApi.csproj]
+/home/om/test-board/dotnets/HospitalApi/Migrations/20240510221514_remove doctorhospital lists from doctor,hospital.Designer.cs(15,19): warning CS8981: The type name 'removedoctorhospitallistsfromdoctorhospital' only contains lower-cased ascii characters. Such names may become reserved for the language. [/home/om/test-board/dotnets/HospitalApi/HospitalApi.csproj]
+/home/om/test-board/dotnets/HospitalApi/Migrations/20240510221931_remove tckn column fom doctor model.cs(8,26): warning CS8981: The type name 'removetckncolumnfomdoctormodel' only contains lower-cased ascii characters. Such names may become reserved for the language. [/home/om/test-board/dotnets/HospitalApi/HospitalApi.csproj]
+/home/om/test-board/dotnets/HospitalApi/Migrations/20240510221931_remove tckn column fom doctor model.Designer.cs(15,19): warning CS8981: The type name 'removetckncolumnfomdoctormodel' only contains lower-cased ascii characters. Such names may become reserved for the language. [/home/om/test-board/dotnets/HospitalApi/HospitalApi.csproj]
+/home/om/test-board/dotnets/HospitalApi/Migrations/20240518185419_remove icollections.cs(8,26): warning CS8981: The type name 'removeicollections' only contains lower-cased ascii characters. Such names may become reserved for the language. [/home/om/test-board/dotnets/HospitalApi/HospitalApi.csproj]
+/home/om/test-board/dotnets/HospitalApi/Migrations/20240518185419_remove icollections.Designer.cs(15,19): warning CS8981: The type name 'removeicollections' only contains lower-cased ascii characters. Such names may become reserved for the language. [/home/om/test-board/dotnets/HospitalApi/HospitalApi.csproj]
+/home/om/test-board/dotnets/HospitalApi/Models/JuncDTO.cs(6,19): warning CS8618: Non-nullable property 'DoctorName' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [/home/om/test-board/dotnets/HospitalApi/HospitalApi.csproj]
+/home/om/test-board/dotnets/HospitalApi/Models/JuncDTO.cs(9,19): warning CS8618: Non-nullable property 'DoctorSurname' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [/home/om/test-board/dotnets/HospitalApi/HospitalApi.csproj]
+/home/om/test-board/dotnets/HospitalApi/Models/JuncDTO.cs(10,28): warning CS8618: Non-nullable property 'Hospitals' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [/home/om/test-board/dotnets/HospitalApi/HospitalApi.csproj]
+/home/om/test-board/dotnets/HospitalApi/Models/Hospital.cs(9,19): warning CS8618: Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [/home/om/test-board/dotnets/HospitalApi/HospitalApi.csproj]
+/home/om/test-board/dotnets/HospitalApi/Models/Hospital.cs(10,19): warning CS8618: Non-nullable property 'Address' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [/home/om/test-board/dotnets/HospitalApi/HospitalApi.csproj]
+/home/om/test-board/dotnets/HospitalApi/Models/Doctor.cs(10,19): warning CS8618: Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [/home/om/test-board/dotnets/HospitalApi/HospitalApi.csproj]
+/home/om/test-board/dotnets/HospitalApi/Models/Doctor.cs(11,19): warning CS8618: Non-nullable property 'Surname' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [/home/om/test-board/dotnets/HospitalApi/HospitalApi.csproj]
+/home/om/test-board/dotnets/HospitalApi/Controllers/DoctorHospitalController.cs(53,58): warning CS8602: Dereference of a possibly null reference. [/home/om/test-board/dotnets/HospitalApi/HospitalApi.csproj]
+/home/om/test-board/dotnets/HospitalApi/Controllers/DoctorHospitalController.cs(57,57): warning CS8619: Nullability of reference types in value of type 'List<Hospital?>' doesn't match target type 'List<Hospital>'. [/home/om/test-board/dotnets/HospitalApi/HospitalApi.csproj]
+/home/om/test-board/dotnets/HospitalApi/Controllers/DoctorHospitalController.cs(103,39): warning CS8602: Dereference of a possibly null reference. [/home/om/test-board/dotnets/HospitalApi/HospitalApi.csproj]
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:5179
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/om/test-board/dotnets/HospitalApi
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+warn: Microsoft.EntityFrameworkCore.Infrastructure[10410]
+      'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider.
+fail: Microsoft.EntityFrameworkCore.Database.Command[20102]
+      Failed executing DbCommand (82ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Doctors" ("Name", "Surname", "TCKN")
+      VALUES (@p0, @p1, @p2)
+      RETURNING "Id";
+fail: Microsoft.EntityFrameworkCore.Update[10000]
+      An exception occurred in the database while saving changes for context type 'HospitalApi.Models.HospitalContext'.
+      Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+       ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "AK_Doctors_TCKN"
+      
+      DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+         at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+         at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+         at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+         at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+         at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+         at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+         at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+        Exception data:
+          Severity: ERROR
+          SqlState: 23505
+          MessageText: duplicate key value violates unique constraint "AK_Doctors_TCKN"
+          Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+          SchemaName: public
+          TableName: Doctors
+          ConstraintName: AK_Doctors_TCKN
+          File: nbtinsert.c
+          Line: 663
+          Routine: _bt_check_unique
+         --- End of inner exception stack trace ---
+         at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+         at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+      Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+       ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "AK_Doctors_TCKN"
+      
+      DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+         at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+         at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+         at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+         at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+         at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+         at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+         at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+        Exception data:
+          Severity: ERROR
+          SqlState: 23505
+          MessageText: duplicate key value violates unique constraint "AK_Doctors_TCKN"
+          Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+          SchemaName: public
+          TableName: Doctors
+          ConstraintName: AK_Doctors_TCKN
+          File: nbtinsert.c
+          Line: 663
+          Routine: _bt_check_unique
+         --- End of inner exception stack trace ---
+         at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+         at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+         at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+ayman__23505, Omer Olkun Duplicate key error: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...

@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using HospitalApi.Models;
+using Microsoft.Data.SqlClient;
+using Npgsql;
 
 namespace HospitalApi.Controllers
 {
@@ -77,10 +79,32 @@ namespace HospitalApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Doctor>> PostDoctor(Doctor doctor)
         {
+
             _context.Doctors.Add(doctor);
-            await _context.SaveChangesAsync();
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException e)
+            {
+                if (e.InnerException is PostgresException pEx && pEx.SqlState == "23505")
+                {
+                    Console.WriteLine("ayman__" + pEx.SqlState + ", Omer Olkun Duplicate key error: " + pEx.Detail);
+                    ModelState.AddModelError("TCKN", "TCKN already exists.");
+                    return BadRequest(ModelState);
+                }
+                else
+                {
+                    Console.WriteLine("an error: " + e.Message);
+                }
+                return Ok();
+            }
+
+
 
             return CreatedAtAction("GetDoctor", new { id = doctor.Id }, doctor);
+
+
         }
 
         // DELETE: api/Doctor/5
